@@ -1,0 +1,27 @@
+{% extends 'tasks/main.html' %}
+
+{% block content %}
+    {% if request.user.is_authenticated %}
+        <p>{{ request.user }}</p>
+        <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+        <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+    <hr>
+    <h2>My Task List</h2>
+    <a href="{% url 'create_task' %}">Add Task</a>
+
+    <form method="get" action="{% url 'search_tasks' %}">
+        {% csrf_token %}
+        <input type="text" name="query" placeholder="Search Tasks">
+        <button type="submit">Search</button>
+    </form>
+
+    {% for task in tasks %}
+        <div>
+            <p>{{ task.title }}</p>
+            <a href="{% url 'update_task' task.id %}">Update</a>
+            <a href="{% url 'delete_task' task.id %}">Delete</a>
+        </div>
+    {% endfor %}
+{% endblock %}

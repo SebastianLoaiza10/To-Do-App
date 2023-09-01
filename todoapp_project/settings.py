@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'debug_toolbar',
+    'tasks',
+    'notifications',
 ]
 
 MIDDLEWARE = [
@@ -74,6 +76,9 @@ TEMPLATES = [
         },
     },
 ]
+
+LOGIN_REDIRECT_URL = 'task_list'
+LOGOUT_REDIRECT_URL = 'login'
 
 WSGI_APPLICATION = 'todoapp_project.wsgi.application'
 
