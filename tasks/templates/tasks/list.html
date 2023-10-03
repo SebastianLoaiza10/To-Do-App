@@ -14,7 +14,7 @@
     <form method="get" action="{% url 'search_tasks' %}">
         {% csrf_token %}
         <input type="text" name="query" placeholder="Search Tasks">
-        <button type="submit">Search</button>
+        <input type="submit" value="Search" class="search-button">
     </form>
 
     {% for task in tasks %}

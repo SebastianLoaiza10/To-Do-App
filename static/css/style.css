@@ -1,0 +1,25 @@
+header {
+    background-color: #007BFF;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+a {
+    color: #007BFF;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.search-button {
+    background-color: white;
+    border: solid;
+    border-radius: 0%;
+    cursor: pointer;
+}

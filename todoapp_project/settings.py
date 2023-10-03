@@ -79,6 +79,7 @@ TEMPLATES = [
 
 LOGIN_REDIRECT_URL = 'task_list'
 LOGOUT_REDIRECT_URL = 'login'
+LOGIN_URL = 'login'
 
 WSGI_APPLICATION = 'todoapp_project.wsgi.application'
 
@@ -128,7 +129,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+# Define the base directory for your static files
+STATIC_URL = '/static/'
+
+# Define the directory where your static files will be collected
+STATICFILES_DIRS = [BASE_DIR / "static"]
+
+# Define the directory where collected static files will be stored
+STATIC_ROOT = BASE_DIR / "static_root"
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
