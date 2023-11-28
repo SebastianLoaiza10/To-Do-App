@@ -1,14 +1,24 @@
+/*for text and its color*/
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-  }
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f4f4f4;
+} 
+/*header customization*/
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
 
-  header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
-    text-align: center;
-  }
+.container{
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
 main {
     max-width: 800px;
@@ -22,10 +32,17 @@ a {
     transition: color 0.3s;
 }
 
+.search-box{
+  width: 250px;
+  padding: 8px;
+  margin-top: 20px;
+  margin-right: 1px;
+}
 .search-button {
     background-color: white;
     border: solid;
     border-radius: 5px;
+    padding: 8px 12px;
     cursor: pointer;
 }
 
@@ -39,11 +56,27 @@ a {
   text-decoration: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: opacity 0.15s;
+  border: 1px solid #333;
+}
+
+.completed-task{
+  text-decoration: line-through;
+  opacity: 0.6;
 }
 
 .search-button:hover,
 .update-link:hover,
 .delete-link:hover,
 .add-task-link:hover {
-  opacity: 0.8;
+  opacity: 0.7;
+  border-color: #007BFF;
+}
+
+.search-button:active,
+.update-link:active,
+.delete-link:active,
+.add-task-link:active {
+  opacity: 0.5;
+  border-color: #333;
 }
