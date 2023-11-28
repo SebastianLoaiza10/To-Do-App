@@ -22,7 +22,11 @@ def register(request):
 @login_required
 def ViewTasks(request):
     tasks = Task.objects.filter(user=request.user) # Query all the users tasks from the database
-    context = {'tasks': tasks}  # Create a context dictionary with the 'tasks' queryset
+    incomplete_tasks = Task.objects.filter(user=request.user, completed=False)  # Query incomplete tasks
+    context = {
+        'tasks': tasks,
+        'incomplete_tasks': incomplete_tasks,
+    }  # Create a context dictionary with the 'tasks'& 'incomplete_tasks' queryset
     return render(request, 'tasks/list.html', context) # Render the 'list.html' template with the context data
 
 @login_required
