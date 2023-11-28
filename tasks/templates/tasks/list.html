@@ -3,25 +3,27 @@
 {% block content %}
     {% if request.user.is_authenticated %}
         <p>{{ request.user }}</p>
-        <a href="{% url 'logout' %}">Logout</a>
+        <a href="{% url 'logout' %}" class="logout-link">Logout</a>
     {% else %}
-        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'login' %}"class="login-link">Login</a>
     {% endif %}
     <hr>
     <h2>My Task List</h2>
-    <a href="{% url 'create_task' %}">Add Task</a>
+    <a href="{% url 'create_task' %}"class="add-task-link">Add Task</a>
 
+    <!-- Presents the search bar for the user inorder find certain tasks -->
     <form method="get" action="{% url 'search_tasks' %}">
         {% csrf_token %}
         <input type="text" name="query" placeholder="Search Tasks">
         <input type="submit" value="Search" class="search-button">
     </form>
 
+    <!-- Presents the list of tasks from the user -->
     {% for task in tasks %}
         <div>
             <p>{{ task.title }}</p>
-            <a href="{% url 'update_task' task.id %}">Update</a>
-            <a href="{% url 'delete_task' task.id %}">Delete</a>
+            <a href="{% url 'update_task' task.id %}"class="update-link">Update</a>
+            <a href="{% url 'delete_task' task.id %}"class="delete-link">Delete</a>
         </div>
     {% endfor %}
 {% endblock %}
