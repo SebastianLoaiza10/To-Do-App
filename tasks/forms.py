@@ -5,7 +5,7 @@ from .models import Task
 class TaskForm(forms.ModelForm):
     class Meta:
         model = Task # finds out what model the form is going to be based on
-        fields = '__all__' # includes all the fields from the Task class created in Models.py
+        fields = ['title', 'description', 'due_date', 'completed'] # includes all the fields from the Task class created in Models.py
         widgets = {
             'due_date': forms.DateInput(attrs={'type': 'date'}),
         }

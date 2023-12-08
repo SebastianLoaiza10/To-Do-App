@@ -35,7 +35,9 @@ def CreateTask(request):
     if request.method == 'POST': # checks if the HTTP request is wanting to submit data
         form = TaskForm(request.POST) # Passes the data in the TaskForm
         if form.is_valid(): # Checks to see if the data is valid based on the rules of TaskForm 
-            form.save() # Saves the data from the form into the database
+            task = form.save(commit=False) # Doesn't save the task immediately to the database
+            task.user = request.user  # Set the user before saving
+            task.save()
             return redirect('task_list') # Redirect to the task list view
         else: # incase user input incorrect data
             form = TaskForm() 
@@ -48,7 +50,9 @@ def UpdateTask(request, task_id):
     if request.method == 'POST':
         form = TaskForm(request.POST, instance=task) # takes the task's data into the form and replaces it with user given data
         if form.is_valid():
-            form.save()
+            task = form.save(commit=False)
+            task.user = request.user  # Set the user before saving
+            task.save()
             return redirect('task_list')
     else:
         form = TaskForm(instance=task) # keeps the form the exact same
