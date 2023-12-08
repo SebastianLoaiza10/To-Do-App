@@ -1,13 +1,26 @@
 {% extends 'tasks/main.html' %}
 
 {% block content %}
-    <h1>Register</h1>
+    {% if form.errors %}
+        <p class="error-message">Invalid username or password. Please try again.</p>
+    {% endif %}
+    <div class="register-form">
+        <h1>Register</h1>
 
-    <form method="POST">
-        {% csrf_token %}
-        {{form.as_p}}
-        <button type="submit">Register</button>
-    </form>
+        <form method="POST">
+            {% csrf_token %}
 
-<p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+            <label>{{form.username.label}}</label>
+            {{form.username}}
+
+            <label>{{form.password1.label}}</label>
+            {{form.password1}}
+
+            <label>{{form.password2.label}}</label>
+            {{form.password2}}
+
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+    </div>
 {% endblock %}
