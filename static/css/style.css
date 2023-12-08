@@ -46,6 +46,17 @@ a {
     cursor: pointer;
 }
 
+.search-button:hover {
+  background-color: #333;
+  border: solid;
+  border-color: #333;
+  border-radius: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+  color: #fff;
+  transition: 0.15s;
+}
+
 .add-task-link,
 .update-link,
 .delete-link {
@@ -65,18 +76,61 @@ a {
   opacity: 0.6;
 }
 
-.search-button:hover,
 .update-link:hover,
 .delete-link:hover,
-.add-task-link:hover {
+.add-task-link:hover,
+.create-task-form button:hover,
+.update-task-form button:hover,
+.delete-task-form button:hover {
   opacity: 0.7;
-  border-color: #007BFF;
 }
 
 .search-button:active,
 .update-link:active,
 .delete-link:active,
-.add-task-link:active {
+.add-task-link:active,
+.create-task-form button:active,
+.update-task-form button:active,
+.delete-task-form button:active {
   opacity: 0.5;
-  border-color: #333;
+  border-color: #007BFF;
+}
+
+.create-task-form,
+.update-task-form,
+.delete-task-form {
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.create-task-form input[type="text"],
+.create-task-form textarea,
+.update-task-form input[type="text"],
+.update-task-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.create-task-form button,
+.update-task-form button,
+.delete-task-form button {
+  padding: 5px 10px;
+  margin-left: 5px;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  border: 1px solid #333;
+}
+
+.create-task-form a,
+.update-task-form a,
+.delete-task-form a {
+  display: block;
+  margin-top: 10px;
+  color: #007BFF;
+  text-decoration: none;
 }

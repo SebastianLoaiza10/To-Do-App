@@ -21,8 +21,8 @@
 
     <!-- Presents the list of tasks from the user -->
     {% for task in tasks %}
-        <div class="{% if task.completed %}completed-task{% endif %}">
-            <p>{{ task.title }}</p>
+        <div>
+            <p {% if task.completed %}class="completed-task"{% endif %}>{{ task.title }}</p>
             <a href="{% url 'update_task' task.id %}" class="update-link">Update</a>
             <a href="{% url 'delete_task' task.id %}" class="delete-link">Delete</a>
         </div>
