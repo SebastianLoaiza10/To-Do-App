@@ -38,6 +38,25 @@ a {
   margin-top: 20px;
   margin-right: 1px;
 }
+
+.task-view {
+  margin-bottom: 12px;
+}
+
+.task-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.task-title {
+  margin: 0; /* Remove default margin */
+}
+
+.due-date {
+  margin-left: 10px; /* Adjust as needed to control spacing */
+}
+
+
 .search-button {
     background-color: white;
     border: solid;
