@@ -189,8 +189,7 @@ a {
 }
 
 .create-task-form a,
-.update-task-form a,
-.delete-task-form a {
+.update-task-form a {
   display: block;
   margin-top: 10px;
   color: #007BFF;
