@@ -4,17 +4,20 @@
     {% if request.user.is_authenticated %}
         <div class="header-text">
             <p>Welcome back, {{ request.user }}!</p>
-            <p>You have {{incomplete_tasks|length}} incompleted tasks</p>
+            <p>You have {{ incomplete_tasks|length }} incompleted tasks</p>
         </div>
-        <a href="{% url 'logout' %}" class="logout-link">Logout</a>
+        <form method="post" action="{% url 'logout' %}" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit" class="logout-link">Logout</button>
+        </form>
     {% else %}
-        <a href="{% url 'login' %}"class="login-link">Login</a>
+        <a href="{% url 'login' %}" class="login-link">Login</a>
     {% endif %}
     <hr>
     <h2>My Task List</h2>
-    <a href="{% url 'create_task' %}"class="add-task-link">Add Task</a>
+    <a href="{% url 'create_task' %}" class="add-task-link">Add Task</a>
 
-    <!-- Presents the search bar for the user inorder find certain tasks -->
+    <!-- Presents the search bar for the user in order to find certain tasks -->
     <form method="get" action="{% url 'search_tasks' %}">
         {% csrf_token %}
         <input type="text" name="query" placeholder="Search Tasks" class="search-box">
@@ -32,5 +35,4 @@
             <a href="{% url 'delete_task' task.id %}" class="delete-link">Delete</a>
         </div>
     {% endfor %}
-
 {% endblock %}

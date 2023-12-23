@@ -136,7 +136,8 @@ a {
 .update-task-form button:hover,
 .delete-task-form button:hover,
 .login-form button:hover,
-.register-form button:hover {
+.register-form button:hover
+.logout-link:hover {
   opacity: 0.7;
 }
 
@@ -148,7 +149,8 @@ a {
 .update-task-form button:active,
 .delete-task-form button:active,
 .login-form button:active,
-.register-form button:active {
+.register-form button:active
+.logout-link:active {
   opacity: 0.5;
   border-color: #007BFF;
 }
@@ -173,7 +175,8 @@ a {
 .update-task-form button,
 .delete-task-form button,
 .login-form button,
-.register-form button {
+.register-form button,
+.logout-link {
   padding: 5px 10px;
   margin-left: 5px;
   background-color: #333;
@@ -186,8 +189,7 @@ a {
 }
 
 .create-task-form a,
-.update-task-form a,
-.delete-task-form a {
+.update-task-form a {
   display: block;
   margin-top: 10px;
   color: #007BFF;
